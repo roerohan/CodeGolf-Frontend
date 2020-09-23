@@ -1,0 +1,59 @@
+html {
+  background: url("../../assets/HomePage/background.png") no-repeat center fixed;
+  background-size: cover;
+  background-color: black;
+  font-family: HACKED;
+  color: white;
+}
+
+@font-face {
+  font-family: "HACKED";
+  src: local("HACKED"), url("../../assets/HACKED/HACKED.ttf") format("truetype");
+}
+
+.title {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-content: center;
+}
+
+h1 {
+  font-size: 18.75rem;
+  margin: 0;
+}
+
+.heading {
+  margin-top: -15%;
+  margin-left: -10%;
+  font-size: 8.188rem;
+}
+
+.button {
+  margin-top: 10%;
+  font-size: 2.5rem;
+}
+
+img {
+  margin-top: -1%;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 62.5rem) {
+  .title {
+    left: 45%;
+  }
+  .heading {
+    margin-left: 5%;
+  }
+  h1 {
+    font-size: 15rem;
+  }
+  .heading {
+    font-size: 5rem;
+  }
+  .button {
+    font-size: 2rem;
+  }
+}
