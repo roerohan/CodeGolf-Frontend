@@ -8,8 +8,8 @@ import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 const App = () => (
     <div className="App">
         <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route path='/main' component={QuestionsPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route path="/main" component={QuestionsPage} />
         </Switch>
     </div>
 );
