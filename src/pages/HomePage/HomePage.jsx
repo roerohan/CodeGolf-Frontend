@@ -1,10 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import header from "../../assets/HomePage/YOUGOTAsset 1.png";
 import '../../assets/HACKED/HACKED.ttf';
 
 import "./HomePage.css";
 
 const HomePage = () => {
+  document.addEventListener('keydown', logKey);
+  let history = useHistory();
+
+  function logKey(e){
+    if(e){
+      history.push('/main');
+    }
+  }
   return (
     <div className="container">
       <img className="header" src={header} alt="header.png" />
