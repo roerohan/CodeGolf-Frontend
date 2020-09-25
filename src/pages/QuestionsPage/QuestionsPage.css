@@ -1,0 +1,25 @@
+body {
+	background: none;
+	background-color: black;
+}
+
+.content-area {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px;
+}
+
+.questions-ind {
+	max-height: 700px;
+	overflow-y: scroll;
+}
+
+.questions-ind {
+	max-height: 700px;
+	overflow-y: scroll;
+}
+
+.heading {
+	font-size: 3rem;
+	padding-bottom: 10px;
+}

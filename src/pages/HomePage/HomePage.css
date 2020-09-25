@@ -1,7 +1,4 @@
 html {
-  background: url("../../assets/HomePage/background.png") no-repeat center fixed;
-  background-size: cover;
-  background-color: black;
   font-family: HACKED;
   color: white;
 }
@@ -11,7 +8,13 @@ html {
   src: local("HACKED"), url("../../assets/HACKED/HACKED.ttf") format("truetype");
 }
 
-.title {
+body {
+  background: url("../../assets/HomePage/background.png") no-repeat center fixed;
+  background-size: cover;
+  background-color: black;
+}
+
+.home-title {
   position: absolute;
   top: 58%;
   left: 50%;
@@ -19,41 +22,36 @@ html {
   align-content: center;
 }
 
-h1 {
+.CG {
   font-size: 18.75rem;
   margin: 0;
 }
 
-.heading {
+.home-heading {
   margin-top: -15%;
   margin-left: -10%;
   font-size: 8.188rem;
 }
 
-.button {
+.home-button {
   margin-top: 10%;
   font-size: 2.5rem;
 }
 
-img {
-  margin-top: -1%;
-  max-width: 100%;
-}
-
 @media only screen and (max-width: 62.5rem) {
-  .title {
+  .home-title {
     left: 45%;
   }
-  .heading {
+  .home-heading {
     margin-left: 5%;
   }
-  h1 {
+  .CG {
     font-size: 15rem;
   }
-  .heading {
+  .home-heading {
     font-size: 5rem;
   }
-  .button {
+  .home-button {
     font-size: 2rem;
   }
 }

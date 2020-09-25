@@ -1,0 +1,17 @@
+.leaderboard-table {
+	border: 5px solid #FE0000;
+	border-spacing: 0;
+	max-height: 600px;
+	overflow-y: scroll;
+	font-size: 2.5rem;
+}
+
+th, td {
+	padding: 20px 40px;
+}
+
+th {
+	padding-bottom: 10px;
+	border-bottom: 3px solid #FE0000;
+	margin: 0 5px;
+}
