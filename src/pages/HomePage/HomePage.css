@@ -1,17 +1,15 @@
-html {
-  font-family: HACKED;
-  color: white;
+.header {
+  position: absolute;
 }
 
-@font-face {
-  font-family: "HACKED";
-  src: local("HACKED"), url("../../assets/HACKED/HACKED.ttf") format("truetype");
-}
-
-body {
+.home-container{
+  /* position: absolute; */
+  height: 100vh;
   background: url("../../assets/HomePage/background.png") no-repeat center fixed;
   background-size: cover;
   background-color: black;
+  font-family: HACKED;
+  color: white;
 }
 
 .home-title {
