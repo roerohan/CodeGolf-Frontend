@@ -8,7 +8,7 @@ const HomePage = () => {
 
   function logKey(e) {
     if (e) {
-      history.push('/questions');
+      history.push('/main');
     }
   }
   document.addEventListener('keydown', logKey);
@@ -16,8 +16,8 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <div className="home-title">
-        <h1 className="CG">C G</h1>
-        <h2 className="home-heading">CODEGOLF</h2>
+        <h1 className="CG">CG</h1>
+        <h1 className="home-heading">Codegolf</h1>
         <div className="home-button">Press any key to continue</div>
       </div>
     </div>
