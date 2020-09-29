@@ -15,3 +15,7 @@ th {
 	border-bottom: 3px solid #FE0000;
 	margin: 0 5px;
 }
+
+.leaderboard-heading{
+	text-align: center;
+}

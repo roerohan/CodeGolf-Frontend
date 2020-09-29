@@ -4,7 +4,7 @@ import './leaderboard.css';
 
 const Leaderboard = () => (
     <div className="leaderboard">
-        <div className="leaderboard-heading heading">Global Leaderboard</div>
+        <div className="leaderboard-heading heading">Leaderboard</div>
         <div className="leaderboard">
             <table className="leaderboard-table">
                 <thead>
