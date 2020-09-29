@@ -9,14 +9,37 @@ import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-ruby";
+import "ace-builds/src-noconflict/mode-rust";
+import "ace-builds/src-noconflict/mode-swift";
+import "ace-builds/src-noconflict/mode-perl";
+import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 const QuestionPage = () => {
-  const langList = ["Python", "Javascript", "Java", "Ruby"];
+  const langList = [
+    "Bash",
+    "Brainfuck",
+    "C",
+    "C++",
+    "Golfscript",
+    "Java",
+    "Javascript",
+    "O5ABE1",
+    "Perl",
+    "Python",
+    "Ruby",
+    "Rust",
+    "Swift",
+  ];
 
   var [language, setLanguage] = useState("Languages");
-
+  var mode = "";
+  if (language === "C" || language === "C++") {
+    mode = "c_cpp";
+  } else {
+    mode = language;
+  }
 
   return (
     <div>
@@ -50,7 +73,7 @@ const QuestionPage = () => {
             </div>
           </div>
           <AceEditor
-            mode={language.toLowerCase()}
+            mode={mode.toLowerCase()}
             theme="monokai"
             name="coding-space"
             highlightActiveLine={true}
