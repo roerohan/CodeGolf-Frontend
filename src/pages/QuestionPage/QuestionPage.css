@@ -62,6 +62,7 @@
 
 
 .dropdown {
+	margin-left: 81rem;
 	position: relative;
 	display: inline-block;
   }
@@ -76,7 +77,7 @@
 	cursor: pointer;
 	margin-bottom: 2rem;
   }
-  
+
   .dropdown-content {
 	display: none;
 	position: absolute;
@@ -85,16 +86,16 @@
 	z-index: 100;
   }
   
-  .dropdown-content a {
+  .dropdown-item {
 	color: white;
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
   }
   
-  .dropdown-content a:hover {
+  .dropdown-item :hover {
 	border: 2px solid #3cc6f2;
   }
   
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropdown-menu {display: block;}
   

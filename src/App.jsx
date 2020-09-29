@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage/HomePage';
 import QuestionPage from './pages/QuestionPage/QuestionPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
 
+
 const App = () => {
     const [questions, setQuestions] = useState([]);
 
