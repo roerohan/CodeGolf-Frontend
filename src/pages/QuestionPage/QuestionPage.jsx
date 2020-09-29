@@ -59,12 +59,15 @@ const QuestionPage = ({ question }) => {
 
     return (
         <div>
-            <img
-                onClick={routeChange}
-                src={HomeButton}
-                alt="home-button.svg"
-                className="home-button"
-            />
+            <Link to="/">
+                <img
+                    onClick={routeChange}
+                    src={HomeButton}
+                    alt="home-button.svg"
+                    className="home-button"
+                />
+            </Link>
+
             <ModalBox />
             <div className="content-area">
                 <div className="questions">
@@ -87,31 +90,39 @@ const QuestionPage = ({ question }) => {
                         {question.questionName}
                     </div>
                     <div className="question-details">{question.question}</div>
-                    <p>characters: {characters}</p>
-                    <p>language: </p>
-                    <Dropdown className="dropdown">
-                        <Dropdown.Toggle
-                            className="dropbtn"
-                            id="dropdown-basic"
-                        >
-                            {language}
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="dropdown-content">
-                            {langList.map((lang) => {
-                                return (
-                                    <Dropdown.Item
-                                        className="dropdown-item"
-                                        onClick={(e) =>
-                                            setLanguage(e.target.text)
-                                        }
+                    <div className="dropdown-div">
+                        <div>Characters: {characters}</div>
+                        <div className="language-div">
+                            <div>Language: &nbsp;</div>
+                            <div>
+                                <Dropdown className="dropdown">
+                                    <Dropdown.Toggle
+                                        className="dropbtn"
+                                        id="dropdown-basic"
                                     >
-                                        {lang}
-                                    </Dropdown.Item>
-                                );
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                                        {language}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu className="dropdown-content">
+                                        {langList.map((lang) => {
+                                            return (
+                                                <Dropdown.Item
+                                                    className="dropdown-item"
+                                                    onClick={(e) =>
+                                                        setLanguage(
+                                                            e.target.text
+                                                        )
+                                                    }
+                                                >
+                                                    {lang}
+                                                </Dropdown.Item>
+                                            );
+                                        })}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                        </div>
+                    </div>
 
                     <AceEditor
                         onChange={(e) => setCharacter(0)}

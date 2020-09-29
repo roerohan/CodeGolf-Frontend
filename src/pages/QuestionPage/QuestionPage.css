@@ -23,14 +23,10 @@
 }
 
 .heading {
-    font-size: 3rem;
+    font-size: 4rem;
     padding-bottom: 10px;
 }
 
-.question-heading {
-    padding-bottom: 25px;
-    font-size: 3rem;
-}
 
 .question-details,
 .coding-box {
@@ -70,12 +66,14 @@
 }
 
 .dropdown {
-    margin-left: 100%;
-    transform: translateX(-100%);
     position: relative;
     display: inline-block;
     font-size: 20px;
     z-index: 100;
+}
+
+#dropdown-basic {
+	margin-bottom: 0;
 }
 
 .dropbtn {
@@ -111,4 +109,18 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropdown-div, .language-div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dropdown-div {
+	margin-bottom: 20px;
+}
+
+.home-button {
+	margin-left: 20px;
 }
