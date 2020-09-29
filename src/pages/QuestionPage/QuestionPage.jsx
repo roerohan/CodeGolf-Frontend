@@ -55,7 +55,13 @@ const QuestionPage = ({ question }) => {
         mode = language;
     }
 
+    const [code, setCode] = useState("");
     const [characters, setCharacter] = useState(0);
+
+    const onChangeFunction = (value) =>{
+        setCode(value);
+        setCharacter(value.length);
+    }
 
     return (
         <div>
@@ -125,8 +131,8 @@ const QuestionPage = ({ question }) => {
                     </div>
 
                     <AceEditor
-                        onChange={(e) => setCharacter(0)}
-                        value="code"
+                        value={code}
+                        onChange={onChangeFunction}
                         mode={mode.toLowerCase()}
                         theme="monokai"
                         name="coding-space"
