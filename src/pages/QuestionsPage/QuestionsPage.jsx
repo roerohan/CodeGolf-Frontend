@@ -11,7 +11,7 @@ const QuestionsPage = ({questions}) => {
                 <div className="questions">
                     <div className="question-heading heading">Challenges</div>
                     <div className="questions-ind">
-                        {questions.map(question => <Question question={question} />)}
+                        {questions.map((question, i) => <Question key={i} question={question} />)}
                     </div>
                 </div>
                 <Leaderboard />

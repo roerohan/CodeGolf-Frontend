@@ -11,16 +11,11 @@ const App = () => {
 
     useEffect(() => {
         const getQuestions = async () => {
-            console.log('Hello')
             const res = await axios('http://localhost:5000/questions');
             setQuestions(res.data.questions);
-            console.log(questions);
         };
       getQuestions();
     }, []);
-
-    const { questionName } = useParams();
-    console.log(questionName);
   
     return (
         <div className="App">
@@ -35,7 +30,6 @@ const App = () => {
                 <Route path="/question/:questionName" render={
                     (props) => {
                         const question = questions.filter(item => item.questionName === props.match.params.questionName)[0];
-                        console.log(question);
                         if (!question) {
                             return (<h1>LOADING....</h1>)
                         }
