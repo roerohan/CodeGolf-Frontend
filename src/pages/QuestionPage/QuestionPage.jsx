@@ -1,26 +1,71 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
+import ModalBox from '../../components/modal/modal';
 import AceEditor from 'react-ace';
-
-import './QuestionPage.css';
+import { Dropdown } from 'react-bootstrap';
 
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/mode-ruby';
+import 'ace-builds/src-noconflict/mode-rust';
+import 'ace-builds/src-noconflict/mode-swift';
+import 'ace-builds/src-noconflict/mode-perl';
+import 'ace-builds/src-noconflict/mode-c_cpp';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools';
 
-const QuestionPage = ({ question }) => {
-    const langList = ['Python', 'Javascript', 'Java', 'Ruby'];
+import './QuestionPage.css';
+import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-    const [language, setLanguage] = useState('Languages');
+import './QuestionPage.css';
+
+const QuestionPage = ({ question }) => {
+    const history = useHistory();
+
+    const routeChange = () => {
+        history.push('/');
+    };
+
+    const langList = [
+        'Bash',
+        'Brainfuck',
+        'C',
+        'C++',
+        'Golfscript',
+        'Java',
+        'Javascript',
+        'O5ABE1',
+        'Perl',
+        'Python',
+        'Ruby',
+        'Rust',
+        'Swift',
+    ];
+
+    const [language, setLanguage] = useState('Select');
+
+    let mode = '';
+    if (language === 'C' || language === 'C++') {
+        mode = 'c_cpp';
+    } else {
+        mode = language;
+    }
+
+    const [characters, setCharacter] = useState(0);
 
     return (
         <div>
+            <img
+                onClick={routeChange}
+                src={HomeButton}
+                alt="home-button.svg"
+                className="home-button"
+            />
+            <ModalBox />
             <div className="content-area">
                 <div className="questions">
                     <div className="nav-buttons">
@@ -33,8 +78,8 @@ const QuestionPage = ({ question }) => {
                             </a>
                         </div>
                         <div>
-                            <Link to='/questions' className="next">
-                                <span>&lt;&lt; Go back to Questions</span>
+                            <Link to="/" className="next">
+                                <span>&lt;&lt; Back to Questions</span>
                             </Link>
                         </div>
                     </div>
@@ -42,31 +87,42 @@ const QuestionPage = ({ question }) => {
                         {question.questionName}
                     </div>
                     <div className="question-details">{question.question}</div>
-                    <div className="dropdown">
-                        <button className="dropbtn">{language}</button>
-                        <div className="dropdown-content">
-                            {langList.map((lang, i) => {
+                    <p>characters: {characters}</p>
+                    <p>language: </p>
+                    <Dropdown className="dropdown">
+                        <Dropdown.Toggle
+                            className="dropbtn"
+                            id="dropdown-basic"
+                        >
+                            {language}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu className="dropdown-content">
+                            {langList.map((lang) => {
                                 return (
-                                    <a
-                                        key={i}
+                                    <Dropdown.Item
+                                        className="dropdown-item"
                                         onClick={(e) =>
                                             setLanguage(e.target.text)
                                         }
                                     >
                                         {lang}
-                                    </a>
+                                    </Dropdown.Item>
                                 );
                             })}
-                        </div>
-                    </div>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
                     <AceEditor
-                        mode={language.toLowerCase()}
+                        onChange={(e) => setCharacter(0)}
+                        value="code"
+                        mode={mode.toLowerCase()}
                         theme="monokai"
                         name="coding-space"
                         highlightActiveLine={true}
-                        showGutter={false}
-                        showPrintMargin={false}
+                        showGutter={true}
                         fontSize={18}
+                        showPrintMargin={false}
                         editorProps={{ $blockScrolling: false }}
                         setOptions={{
                             enableBasicAutocompletion: true,
