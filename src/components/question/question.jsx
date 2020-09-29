@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './question.css';
 
-const Question = () => (
+const Question = ({question}) => (
   <div className="question">
     <div className="question-text">
-      Print the lyrics to the song The 12 Days of Christmas
+      {question.questionName}
     </div>
     <div className="question-bottom-div">
-      <div className="points">420 pts.</div>
-      <button type="button" className="solve-button">Solve</button>
+      <div className="points">{question.points} pts.</div>
+      <Link to="/question"><button type="button" className="solve-button">Solve</button></Link>
     </div>
   </div>
 );

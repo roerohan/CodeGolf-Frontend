@@ -4,28 +4,21 @@ import Footer from '../../components/footer/footer';
 import './QuestionsPage.css';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 
-const QuestionsPage = () => (
-  <>
-    <div className="content-area">
-      <div className="questions">
-        <div className="question-heading heading">Challenges</div>
-        <div className="questions-ind">
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-          <Question />
-        </div>
-      </div>
-      <Leaderboard />
-    </div>
-    <Footer />
-  </>
-);
+const QuestionsPage = ({questions}) => {
+    return (
+        <>
+            <div className="content-area">
+                <div className="questions">
+                    <div className="question-heading heading">Challenges</div>
+                    <div className="questions-ind">
+                        {questions.map(question => <Question question={question} />)}
+                    </div>
+                </div>
+                <Leaderboard />
+            </div>
+            <Footer />
+        </>
+    );
+};
 
 export default QuestionsPage;

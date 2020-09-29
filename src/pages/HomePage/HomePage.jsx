@@ -8,8 +8,9 @@ const HomePage = () => {
 
   function logKey(e) {
     if (e) {
-      history.push('/main');
+      history.push('/questions');
     }
+    document.removeEventListener('keydown', logKey);
   }
   document.addEventListener('keydown', logKey);
 
