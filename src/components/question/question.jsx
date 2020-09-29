@@ -10,7 +10,7 @@ const Question = ({question}) => (
     </div>
     <div className="question-bottom-div">
       <div className="points">{question.points} pts.</div>
-      <Link to="/question"><button type="button" className="solve-button">Solve</button></Link>
+      <Link to={`/question/${question.questionName}`}><button type="button" className="solve-button">Solve</button></Link>
     </div>
   </div>
 );

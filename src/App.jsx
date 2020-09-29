@@ -29,7 +29,7 @@ const App = () => {
                 <Route path="/questions">
                     <QuestionsPage questions={questions} />
                 </Route>
-                <Route path="/question">
+                <Route path="/question/:questionName">
                     <QuestionPage />
                 </Route>
             </Switch>
