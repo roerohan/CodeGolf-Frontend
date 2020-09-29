@@ -1,49 +1,24 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-// import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
+import Footer from "../../components/footer/footer";
+import Leaderboard from "../../components/leaderboard/leaderboard";
+import AceEditor from "react-ace";
 
-import Footer from '../../components/footer/footer';
-import Leaderboard from '../../components/leaderboard/leaderboard';
-import AceEditor from 'react-ace';
+import "./QuestionPage.css";
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-ruby";
-import "ace-builds/src-noconflict/mode-rust";
-import "ace-builds/src-noconflict/mode-swift";
-import "ace-builds/src-noconflict/mode-perl";
-import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-const QuestionPage = () => {
+const QuestionPage = ({ question }) => {
 
-  const { questionName } = useParams();
+  const langList = ["Python", "Javascript", "Java", "Ruby"];
 
-  const langList = [
-    "Bash",
-    "Brainfuck",
-    "C",
-    "C++",
-    "Golfscript",
-    "Java",
-    "Javascript",
-    "O5ABE1",
-    "Perl",
-    "Python",
-    "Ruby",
-    "Rust",
-    "Swift",
-  ];
+  const [language, setLanguage] = useState("Languages");
 
-  var [language, setLanguage] = useState("Languages");
-  var mode = "";
-  if (language === "C" || language === "C++") {
-    mode = "c_cpp";
-  } else {
-    mode = language;
-  }
 
   return (
     <div>
@@ -58,26 +33,23 @@ const QuestionPage = () => {
             </a>
           </div>
           <div className="question-heading heading">
-            Print the lyrics to the song 12 days of christmas
+          {question.questionName}
           </div>
           <div className="question-details">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae,
-            doloremque distinctio. At sequi illum quaerat ipsum. Consectetur,
-            nesciunt repellendus fugit enim nobis eligendi! Nesciunt quaerat
-            omnis in officiis laboriosam a!
+            {question.question}
           </div>
           <div className="dropdown">
             <button className="dropbtn">{language}</button>
             <div className="dropdown-content">
-              {langList.map((lang) => {
+              {langList.map((i, lang) => {
                 return (
-                  <a onClick={(e) => setLanguage(e.target.text)}>{lang}</a>
+                  <a key={i} onClick={(e) => setLanguage(e.target.text)}>{lang}</a>
                 );
               })}
             </div>
           </div>
           <AceEditor
-            mode={mode.toLowerCase()}
+            mode={language.toLowerCase()}
             theme="monokai"
             name="coding-space"
             highlightActiveLine={true}
@@ -93,15 +65,15 @@ const QuestionPage = () => {
             }}
           />
 
-                    <button type="button" className="submit-button">
-                        Run
-                    </button>
-                </div>
-                <Leaderboard />
-            </div>
-            <Footer />
+          <button type="button" className="submit-button">
+            Run
+          </button>
         </div>
-    );
+        <Leaderboard />
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default QuestionPage;

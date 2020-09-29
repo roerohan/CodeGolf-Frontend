@@ -20,5 +20,4 @@ const QuestionsPage = ({questions}) => {
         </>
     );
 };
-
 export default QuestionsPage;

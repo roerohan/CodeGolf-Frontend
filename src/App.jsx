@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/header/header';
 import HomePage from './pages/HomePage/HomePage';
@@ -10,14 +10,17 @@ const App = () => {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-      const getQuestions = async () => {
-          console.log('Hello')
+        const getQuestions = async () => {
+            console.log('Hello')
             const res = await axios('http://localhost:5000/questions');
-            console.log('Bye: ',res);
             setQuestions(res.data.questions);
+            console.log(questions);
         };
       getQuestions();
     }, []);
+
+    const { questionName } = useParams();
+    console.log(questionName);
   
     return (
         <div className="App">
@@ -29,9 +32,16 @@ const App = () => {
                 <Route path="/questions">
                     <QuestionsPage questions={questions} />
                 </Route>
-                <Route path="/question/:questionName">
-                    <QuestionPage />
-                </Route>
+                <Route path="/question/:questionName" render={
+                    (props) => {
+                        const question = questions.filter(item => item.questionName === props.match.params.questionName)[0];
+                        console.log(question);
+                        if (!question) {
+                            return (<h1>LOADING....</h1>)
+                        }
+                        return <QuestionPage question={question} />
+                    }
+                }></Route>
             </Switch>
         </div>
     );
