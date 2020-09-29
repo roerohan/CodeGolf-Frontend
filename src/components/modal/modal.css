@@ -3,3 +3,23 @@
     bottom: 10px;
     left: 10px;
 }
+.modal-body{
+    background-color: black;
+    height: 70rem;
+    text-align: center;
+}
+
+.modal-image{
+    background-color: aliceblue;
+    height: 25rem;
+    margin-bottom: 5rem;
+}
+
+h1{
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.modal-content{
+    background-color: black;
+}
