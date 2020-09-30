@@ -21,7 +21,6 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-import './QuestionPage.css';
 
 const QuestionPage = ({ question }) => {
     const history = useHistory();
