@@ -28,15 +28,9 @@ const App = () => {
                 <Route path="/questions">
                     <QuestionsPage questions={questions} />
                 </Route>
-                <Route path="/question/:questionName" render={
-                    (props) => {
-                        const question = questions.filter(item => item.questionName === props.match.params.questionName)[0];
-                        if (!question) {
-                            return (<h1>LOADING....</h1>)
-                        }
-                        return <QuestionPage question={question} />
-                    }
-                }></Route>
+                <Route path="/question/:questionName">
+                    <QuestionPage />
+                </Route>
             </Switch>
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
@@ -23,12 +23,15 @@ import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
 import './QuestionPage.css';
 
-const QuestionPage = ({ question }) => {
+const QuestionPage = () => {
+    const { question } = useParams();
     const history = useHistory();
 
     const routeChange = () => {
         history.push('/');
     };
+
+    console.log(question);
 
     const langList = [
         'Bash',
