@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "HACKED";
-	src: local("HACKED"), url("./assets/HACKED/HACKED.ttf") format("truetype");
+	src: local("HACKED"), url("./assets/fonts/HACKED/HACKED.ttf") format("truetype");
   }
 
   @font-face {
 	font-family: "Pixel";
-	src: local("Pixel"), url("./assets/PixelOperator.ttf") format("truetype");
+	src: local("Pixel"), url("./assets/fonts/PixelOperator.ttf") format("truetype");
   }
 
 

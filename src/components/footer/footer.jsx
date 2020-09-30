@@ -1,14 +1,14 @@
 import React from 'react';
 
-import bottomImage from '../../assets/bottom-image.png';
-import csi from '../../assets/csi.png';
-import codegolfBottom from '../../assets/codegolf-bottom.png';
-import gravitas from '../../assets/gravitas.png';
-import instagram from '../../assets/instagram.png';
-import facebook from '../../assets/facebook.png';
-import twitter from '../../assets/twitter.png';
-import discord from '../../assets/discord.png';
-import madeByCSI from '../../assets/madewithbycsi.png';
+import bottomImage from '../../assets/footer/bottom-image.png';
+import csi from '../../assets/footer/csi.png';
+import codegolfBottom from '../../assets/footer/codegolf-bottom.png';
+import gravitas from '../../assets/footer/gravitas.png';
+import instagram from '../../assets/footer/instagram.png';
+import facebook from '../../assets/footer/facebook.png';
+import twitter from '../../assets/footer/twitter.png';
+import discord from '../../assets/footer/discord.png';
+import madeByCSI from '../../assets/footer/madewithbycsi.png';
 
 import './footer.css';
 

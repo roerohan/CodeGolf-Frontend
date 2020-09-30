@@ -5,7 +5,7 @@ html {
 
 @font-face {
   font-family: "HACKED";
-  src: local("HACKED"), url("../../assets/HACKED/HACKED.ttf") format("truetype");
+  src: local("HACKED"), url("../../assets/fonts/HACKED/HACKED.ttf") format("truetype");
 }
 
 body {

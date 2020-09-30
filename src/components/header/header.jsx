@@ -1,6 +1,6 @@
 import React from 'react';
 
-import header from '../../assets/header-image.png';
+import header from '../../assets/header/header-image.png';
 
 import './header.css';
 
