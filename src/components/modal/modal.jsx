@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 
 import ModalButton from '../../assets/Modal/Modal-Button.svg';
-// import ModalBody from "../../assets/Modal/Modal.png";
+import header from '../../assets/Modal/header.png';
+import sponsors from '../../assets/Modal/sponsors.png';
 import './modal.css';
 
 const ModalBox = () => {
@@ -22,7 +23,9 @@ const ModalBox = () => {
 
             <Modal className="modal" show={show} onHide={handleClose}>
                 <Modal.Body className="modal-body">
-                    <div className="modal-image" />
+                    <div className="modal-image">
+                        <img src={header} className="header" alt="header.png" />
+                    </div>
                     <h1>About</h1>
                     <div className="modal-content">
                         <h3>
@@ -34,6 +37,7 @@ const ModalBox = () => {
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                             culpa qui officia deserunt mollit anim id est laborum.
                         </h3>
+                        <img src={sponsors} alt="sponsors.png" />
                     </div>
                 </Modal.Body>
             </Modal>
