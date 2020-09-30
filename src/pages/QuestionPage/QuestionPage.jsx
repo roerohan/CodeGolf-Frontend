@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
@@ -22,7 +22,9 @@ import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
 
-const QuestionPage = ({ question }) => {
+const QuestionPage = ({ questions }) => {
+    const { questionName } = useParams();
+    const question = questions.filter(item => item.questionName === questionName)[0];
     const history = useHistory();
 
     const routeChange = () => {
