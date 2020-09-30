@@ -3,10 +3,14 @@ import Question from '../../components/question/question';
 import Footer from '../../components/footer/footer';
 import './QuestionsPage.css';
 import Leaderboard from '../../components/leaderboard/leaderboard';
+import ModalBox from '../../components/modal/modal';
+
 
 const QuestionsPage = ({questions}) => {
     return (
         <>
+        <div>
+        <ModalBox />
             <div className="content-area">
                 <div className="questions">
                     <div className="question-heading heading">Challenges</div>
@@ -17,6 +21,7 @@ const QuestionsPage = ({questions}) => {
                 <Leaderboard />
             </div>
             <Footer />
+        </div>
         </>
     );
 };
