@@ -5,11 +5,10 @@ html {
 
 @font-face {
   font-family: "HACKED";
-  src: local("HACKED"), url("../../assets/HACKED/HACKED.ttf") format("truetype");
+  src: local("HACKED"), url("../../assets/fonts/HACKED/HACKED.ttf") format("truetype");
 }
 
 body {
-  background: url("../../assets/HomePage/background.png") no-repeat center fixed;
   background-size: cover;
   background-color: black;
 }
@@ -22,15 +21,8 @@ body {
   text-align: center;
 }
 
-.CG {
-  font-size: 35rem;
-  font-weight: bolder;
-  margin: 0;
-}
-
-.home-heading {
-  margin-top: -15%;
-  font-size: 15rem;
+.codegolf-gif{
+  width: 100%;
 }
 
 .home-button {
@@ -41,15 +33,6 @@ body {
 @media only screen and (max-width: 62.5rem) {
   .home-title {
     left: 45%;
-  }
-  .home-heading {
-    margin-left: 5%;
-  }
-  .CG {
-    font-size: 15rem;
-  }
-  .home-heading {
-    font-size: 5rem;
   }
   .home-button {
     font-size: 2rem;
