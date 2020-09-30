@@ -23,15 +23,14 @@ import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
 import './QuestionPage.css';
 
-const QuestionPage = () => {
-    const { question } = useParams();
+const QuestionPage = ({ questions }) => {
+    const { questionName } = useParams();
+    const question = questions.filter(item => item.questionName === questionName)[0];
     const history = useHistory();
 
     const routeChange = () => {
         history.push('/');
     };
-
-    console.log(question);
 
     const langList = [
         'Bash',
