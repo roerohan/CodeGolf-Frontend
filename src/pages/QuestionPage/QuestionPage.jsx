@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
+
+import AceEditor from 'react-ace';
+import { Dropdown } from 'react-bootstrap';
+import propTypes from 'prop-types';
+
 import Footer from '../../components/footer/footer';
 import Leaderboard from '../../components/leaderboard/leaderboard';
 import ModalBox from '../../components/modal/modal';
-import AceEditor from 'react-ace';
-import { Dropdown } from 'react-bootstrap';
 
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/mode-javascript';
@@ -21,11 +23,9 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import './QuestionPage.css';
 import HomeButton from '../../assets/QuestionPage/home-button.svg';
 
-import './QuestionPage.css';
-
 const QuestionPage = ({ questions }) => {
     const { questionName } = useParams();
-    const question = questions.filter(item => item.questionName === questionName)[0];
+    const question = questions.filter((item) => item.questionName === questionName)[0];
     const history = useHistory();
 
     const routeChange = () => {
@@ -57,13 +57,13 @@ const QuestionPage = ({ questions }) => {
         mode = language;
     }
 
-    const [code, setCode] = useState("");
+    const [code, setCode] = useState('');
     const [characters, setCharacter] = useState(0);
 
-    const onChangeFunction = (value) =>{
+    const onChangeFunction = (value) => {
         setCode(value);
         setCharacter(value.length);
-    }
+    };
 
     return (
         <div>
@@ -99,7 +99,10 @@ const QuestionPage = ({ questions }) => {
                     </div>
                     <div className="question-details">{question.question}</div>
                     <div className="dropdown-div">
-                        <div>Characters: {characters}</div>
+                        <div>
+                            Characters:
+                            {characters}
+                        </div>
                         <div className="language-div">
                             <div>Language: &nbsp;</div>
                             <div>
@@ -112,20 +115,16 @@ const QuestionPage = ({ questions }) => {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu className="dropdown-content">
-                                        {langList.map((lang) => {
-                                            return (
-                                                <Dropdown.Item
-                                                    className="dropdown-item"
-                                                    onClick={(e) =>
-                                                        setLanguage(
-                                                            e.target.text
-                                                        )
-                                                    }
-                                                >
-                                                    {lang}
-                                                </Dropdown.Item>
-                                            );
-                                        })}
+                                        {langList.map((lang) => (
+                                            <Dropdown.Item
+                                                className="dropdown-item"
+                                                onClick={(e) => setLanguage(
+                                                    e.target.text,
+                                                )}
+                                            >
+                                                {lang}
+                                            </Dropdown.Item>
+                                        ))}
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>
@@ -138,8 +137,8 @@ const QuestionPage = ({ questions }) => {
                         mode={mode.toLowerCase()}
                         theme="monokai"
                         name="coding-space"
-                        highlightActiveLine={true}
-                        showGutter={true}
+                        highlightActiveLine
+                        showGutter
                         fontSize={18}
                         showPrintMargin={false}
                         editorProps={{ $blockScrolling: false }}
@@ -161,6 +160,13 @@ const QuestionPage = ({ questions }) => {
             <Footer />
         </div>
     );
+};
+
+QuestionPage.propTypes = {
+    questions: propTypes.arrayOf(propTypes.shape({
+        questionName: propTypes.string.isRequired,
+        points: propTypes.number.isRequired,
+    })).isRequired,
 };
 
 export default QuestionPage;
